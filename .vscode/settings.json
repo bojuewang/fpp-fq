@@ -1,0 +1,17 @@
+{
+    "files.eol": "\n",
+    "files.associations": {
+        "*.m": "magma",
+        "*.wl": "wolfram",
+        "*.wls": "wolfram"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/fpp/surfaces/*/metadata.json",
+                "/fq/surfaces/*/metadata.json"
+            ],
+            "url": "./shared/schemas/surface.schema.json"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "options": { "cwd": "${workspaceFolder}" },
+    "tasks": [
+        {
+            "label": "Check Computational Environment",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "check"]
+        },
+        {
+            "label": "Run Current Magma File",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "run", "magma", "${file}"]
+        },
+        {
+            "label": "Run Current Mathematica File",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "run", "mathematica", "${file}"]
+        },
+        {
+            "label": "Test Magma",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "test", "magma"],
+            "group": "test"
+        },
+        {
+            "label": "Test Mathematica",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "test", "mathematica"],
+            "group": "test"
+        },
+        {
+            "label": "Run All Computational Tests",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "bash",
+            "args": ["${workspaceFolder}/scripts/research.sh", "test", "all"],
+            "group": { "kind": "test", "isDefault": true }
+        },
+        {
+            "label": "Git Status",
+            "problemMatcher": [],
+            "type": "process",
+            "command": "git",
+            "args": ["status", "--short", "--branch"]
+        }
+    ]
+}

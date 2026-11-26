@@ -1,0 +1,136 @@
+fpp-fq/
+├── .gitattributes
+├── .gitignore
+├── .vscode/
+│   ├── extensions.json
+│   ├── settings.json
+│   └── tasks.json
+├── AGENTS.md
+├── ARCHITECTURE.md
+├── CHANGELOG.md
+├── README.md
+├── ROADMAP.md
+├── computational/
+│   ├── README.md
+│   ├── magma/
+│   │   ├── README.md
+│   │   ├── examples/
+│   │   │   └── .gitkeep
+│   │   ├── lib/
+│   │   │   └── .gitkeep
+│   │   ├── scripts/
+│   │   │   └── batch.m
+│   │   └── tests/
+│   │       └── smoke.m
+│   └── mathematica/
+│       ├── README.md
+│       ├── examples/
+│       │   └── .gitkeep
+│       ├── notebooks/
+│       │   └── .gitkeep
+│       ├── packages/
+│       │   └── .gitkeep
+│       ├── scripts/
+│       │   └── .gitkeep
+│       └── tests/
+│           └── smoke.wls
+├── data/
+│   ├── certificates/
+│   │   └── .gitkeep
+│   ├── generated/
+│   │   └── .gitkeep
+│   ├── processed/
+│   │   └── .gitkeep
+│   └── raw/
+│       └── .gitkeep
+├── docs/
+│   ├── architecture/
+│   │   └── .gitkeep
+│   ├── computational/
+│   │   └── .gitkeep
+│   ├── diagrams/
+│   │   └── .gitkeep
+│   └── mathematical/
+│       └── .gitkeep
+├── fpp/
+│   ├── README.md
+│   ├── automorphisms/
+│   │   └── .gitkeep
+│   ├── classification/
+│   │   └── .gitkeep
+│   ├── commensurability/
+│   │   └── .gitkeep
+│   ├── coverings/
+│   │   └── .gitkeep
+│   ├── database/
+│   │   └── registry.json
+│   ├── equations/
+│   │   └── .gitkeep
+│   ├── experiments/
+│   │   └── .gitkeep
+│   ├── groups/
+│   │   └── .gitkeep
+│   ├── literature/
+│   │   └── .gitkeep
+│   ├── surfaces/
+│   │   └── .gitkeep
+│   └── verification/
+│       └── .gitkeep
+├── fq/
+│   ├── README.md
+│   ├── automorphisms/
+│   │   └── .gitkeep
+│   ├── classification/
+│   │   └── .gitkeep
+│   ├── commensurability/
+│   │   └── .gitkeep
+│   ├── coverings/
+│   │   └── .gitkeep
+│   ├── database/
+│   │   └── registry.json
+│   ├── equations/
+│   │   └── .gitkeep
+│   ├── experiments/
+│   │   └── .gitkeep
+│   ├── groups/
+│   │   └── .gitkeep
+│   ├── literature/
+│   │   └── .gitkeep
+│   ├── surfaces/
+│   │   └── .gitkeep
+│   └── verification/
+│       └── .gitkeep
+├── logs/
+│   └── .gitkeep
+├── protocols/
+│   ├── README.md
+│   ├── data.md
+│   ├── naming.md
+│   ├── notation.md
+│   ├── reproducibility.md
+│   ├── research.md
+│   ├── terminology.md
+│   └── verification.md
+├── references/
+│   └── .gitkeep
+├── reports/
+│   └── initial-tree.txt
+├── scripts/
+│   └── research.sh
+├── shared/
+│   ├── algorithms/
+│   │   └── .gitkeep
+│   ├── conjectures/
+│   │   └── .gitkeep
+│   ├── definitions/
+│   │   └── surfaces.md
+│   ├── notation/
+│   │   └── README.md
+│   ├── schemas/
+│   │   └── surface.schema.json
+│   ├── theorems/
+│   │   └── .gitkeep
+│   └── theory/
+│       └── .gitkeep
+└── tests/
+    └── check-workspace.sh

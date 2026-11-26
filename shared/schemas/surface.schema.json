@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FPP–FQ surface metadata",
+  "description": "One identified mathematical surface. Use null for unknown data and consult protocols/data.md for file conventions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "surface_id", "family", "classification_id", "alternative_ids",
+    "geometric_genus", "irregularity", "canonical_self_intersection",
+    "euler_characteristic", "betti_numbers", "fundamental_group",
+    "first_integral_homology", "automorphism_group", "universal_cover",
+    "arithmetic_lattice", "commensurability_class", "coefficient_field",
+    "embedding", "defining_equations", "coefficient_matrix",
+    "covering_relationships", "references", "verification_status", "certificates"
+  ],
+  "properties": {
+    "surface_id": {
+      "type": "string",
+      "pattern": "^(fpp|fq)-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "family": { "enum": ["FPP", "FQ"] },
+    "classification_id": { "$ref": "#/$defs/nullableLabel" },
+    "alternative_ids": { "$ref": "#/$defs/labels" },
+    "geometric_genus": { "enum": [0, null] },
+    "irregularity": { "enum": [0, null] },
+    "canonical_self_intersection": { "enum": [8, 9, null] },
+    "euler_characteristic": {
+      "description": "Topological Euler characteristic, equal to c2.",
+      "enum": [3, 4, null]
+    },
+    "betti_numbers": {
+      "description": "Rational Betti numbers in degrees 0 through 4.",
+      "enum": [[1, 0, 1, 0, 1], [1, 0, 2, 0, 1], null]
+    },
+    "fundamental_group": { "$ref": "#/$defs/mathObject" },
+    "first_integral_homology": {
+      "description": "Invariant factors of the finite abelian group, in divisibility order. An empty array denotes the trivial group.",
+      "type": ["array", "null"],
+      "items": { "type": "integer", "minimum": 2 }
+    },
+    "automorphism_group": { "$ref": "#/$defs/mathObject" },
+    "universal_cover": { "$ref": "#/$defs/mathObject" },
+    "arithmetic_lattice": { "$ref": "#/$defs/mathObject" },
+    "commensurability_class": { "$ref": "#/$defs/nullableLabel" },
+    "coefficient_field": { "$ref": "#/$defs/mathObject" },
+    "embedding": { "$ref": "#/$defs/mathObject" },
+    "defining_equations": { "$ref": "#/$defs/artifacts" },
+    "coefficient_matrix": {
+      "anyOf": [{ "$ref": "#/$defs/artifactPath" }, { "type": "null" }]
+    },
+    "covering_relationships": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target", "degree", "description"],
+        "properties": {
+          "source": { "$ref": "#/$defs/label" },
+          "target": { "$ref": "#/$defs/label" },
+          "degree": { "type": ["integer", "null"], "minimum": 1 },
+          "description": { "$ref": "#/$defs/label" }
+        }
+      }
+    },
+    "references": { "$ref": "#/$defs/labels" },
+    "verification_status": {
+      "enum": ["unverified", "partially-verified", "verified", "disputed"]
+    },
+    "certificates": { "$ref": "#/$defs/artifacts" }
+  },
+  "if": { "properties": { "family": { "const": "FPP" } } },
+  "then": {
+    "properties": {
+      "surface_id": { "pattern": "^fpp-" },
+      "canonical_self_intersection": { "enum": [9, null] },
+      "euler_characteristic": { "enum": [3, null] },
+      "betti_numbers": { "enum": [[1, 0, 1, 0, 1], null] }
+    }
+  },
+  "else": {
+    "properties": {
+      "surface_id": { "pattern": "^fq-" },
+      "canonical_self_intersection": { "enum": [8, null] },
+      "euler_characteristic": { "enum": [4, null] },
+      "betti_numbers": { "enum": [[1, 0, 2, 0, 1], null] }
+    }
+  },
+  "$defs": {
+    "label": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "nullableLabel": {
+      "anyOf": [{ "$ref": "#/$defs/label" }, { "type": "null" }]
+    },
+    "labels": {
+      "type": ["array", "null"],
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/label" }
+    },
+    "artifactPath": {
+      "description": "Path within the repository, relative to its root. Use forward slashes.",
+      "type": "string",
+      "pattern": "^[^/\\\\\\r\\n]+(/[^/\\\\\\r\\n]+)*$",
+      "not": { "pattern": "(^|/)\\.{1,2}(/|$)|^[A-Za-z]:" }
+    },
+    "artifacts": {
+      "type": ["array", "null"],
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/artifactPath" }
+    },
+    "mathObject": {
+      "description": "Identify the mathematical object precisely. An optional artifact gives its exact presentation.",
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["description"],
+      "properties": {
+        "description": { "$ref": "#/$defs/label" },
+        "artifact": { "$ref": "#/$defs/artifactPath" }
+      }
+    }
+  }
+}

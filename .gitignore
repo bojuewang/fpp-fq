@@ -1,0 +1,46 @@
+# Private activation and authentication material
+[Mm]agmapass*
+.[Mm]agmapass*
+[Mm]athpass*
+.[Mm]athpass*
+[Ll]icensing/
+[Ll]icense.dat
+*[Mm]agma[Ll]icense*
+[Aa]ctivation[Kk]ey*
+.[Mm]agmarc
+*.lic
+*.license
+*.[Kk]ey
+*.pem
+*.p12
+*.pfx
+.env
+.env.*
+.envrc
+.secrets/
+credentials.json
+id_rsa*
+id_ed25519*
+.ssh/
+.aws/
+.codex/
+.agents/
+
+# Per-machine settings and transient engine or editor files
+.local/
+*.local
+.cache/
+.history/
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.tmp
+*.mx
+*.log
+/logs/*
+!/logs/.gitkeep
+
+# Generated intermediates are local by default. Stage approved exceptions explicitly.
+/data/generated/*
+!/data/generated/.gitkeep
